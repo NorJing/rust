@@ -73,7 +73,7 @@ x--expand-yaml-anchors--remove:
     env: {}
 
   - &job-linux-xl
-    os: buildjet-4vcpu-ubuntu-1804
+    os: buildjet-16vcpu-ubuntu-1804
     <<: *base-job
 
   - &job-macos-xl
@@ -232,7 +232,7 @@ x--expand-yaml-anchors--remove:
 
   - &base-outcome-job
     name: bors build finished
-    runs-on: buildjet-4vcpu-ubuntu-1804
+    runs-on: buildjet-16vcpu-ubuntu-1804
 
   - &base-success-job
     steps:
@@ -679,7 +679,7 @@ jobs:
 
   master:
     name: master
-    runs-on: buildjet-4vcpu-ubuntu-1804
+    runs-on: buildjet-16vcpu-ubuntu-1804
     env:
       <<: [*prod-variables]
     if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'rust-lang-ci/rust'
