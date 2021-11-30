@@ -25,6 +25,8 @@ name: CI
   pull_request:
     branches:
       - "**"
+  workflow_dispatch:
+
 defaults:
   run:
     shell: bash
@@ -41,15 +43,15 @@ jobs:
       matrix:
         include:
           - name: mingw-check
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-llvm-12
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-tools
             env:
               CI_ONLY_WHEN_SUBMODULES_CHANGED: 1
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
     timeout-minutes: 600
     runs-on: "${{ matrix.os }}"
     steps:
@@ -163,128 +165,128 @@ jobs:
               - ARM64
               - linux
           - name: arm-android
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: armhf-gnu
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-aarch64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-android
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-arm-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-armhf-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-armv7-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-i586-gnu-i586-i686-musl
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-i686-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-mips-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-mips64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-mips64el-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-mipsel-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-powerpc-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-powerpc64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-powerpc64le-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-riscv64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-s390x-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-various-1
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-various-2
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-x86_64-freebsd
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-x86_64-illumos
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-x86_64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-x86_64-linux-alt
             env:
               IMAGE: dist-x86_64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
           - name: dist-x86_64-musl
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: dist-x86_64-netbsd
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: i686-gnu
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: i686-gnu-nopt
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: mingw-check
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: test-various
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: wasm32
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-stable
             env:
               IMAGE: x86_64-gnu
               RUST_CI_OVERRIDE_RELEASE_CHANNEL: stable
               CI_ONLY_WHEN_CHANNEL: nightly
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
           - name: x86_64-gnu-aux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-debug
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-distcheck
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-llvm-12
             env:
               RUST_BACKTRACE: 1
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
           - name: x86_64-gnu-nopt
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
           - name: x86_64-gnu-tools
             env:
               DEPLOY_TOOLSTATES_JSON: toolstates-linux.json
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
           - name: dist-x86_64-apple
             env:
               SCRIPT: "./x.py dist --exclude rust-docs --exclude extended && ./x.py dist --target=x86_64-apple-darwin rust-docs && ./x.py dist extended"
@@ -533,7 +535,7 @@ jobs:
       matrix:
         include:
           - name: dist-x86_64-linux
-            os: ubuntu-latest
+            os: buildjet-16vcpu-ubuntu-1804
             env: {}
     timeout-minutes: 600
     runs-on: "${{ matrix.os }}"
@@ -628,7 +630,7 @@ jobs:
         if: "success() && !env.SKIP_JOB && (github.event_name == 'push' || env.DEPLOY == '1' || env.DEPLOY_ALT == '1')"
   master:
     name: master
-    runs-on: ubuntu-latest
+    runs-on: buildjet-16vcpu-ubuntu-1804
     env:
       SCCACHE_BUCKET: rust-lang-ci-sccache2
       DEPLOY_BUCKET: rust-lang-ci2
@@ -659,7 +661,7 @@ jobs:
         run: exit 0
         shell: bash
     name: bors build finished
-    runs-on: ubuntu-latest
+    runs-on: buildjet-16vcpu-ubuntu-1804
   try-failure:
     needs:
       - try
@@ -669,7 +671,7 @@ jobs:
         run: exit 1
         shell: bash
     name: bors build finished
-    runs-on: ubuntu-latest
+    runs-on: buildjet-16vcpu-ubuntu-1804
   auto-success:
     needs:
       - auto
@@ -679,7 +681,7 @@ jobs:
         run: exit 0
         shell: bash
     name: bors build finished
-    runs-on: ubuntu-latest
+    runs-on: buildjet-16vcpu-ubuntu-1804
   auto-failure:
     needs:
       - auto
@@ -689,4 +691,4 @@ jobs:
         run: exit 1
         shell: bash
     name: bors build finished
-    runs-on: ubuntu-latest
+    runs-on: buildjet-16vcpu-ubuntu-1804
